@@ -1,0 +1,13 @@
+name: Keep PeerJS Server Alive
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping PeerJS server
+        run: curl -s https://party-quiz-peerjs.onrender.com > /dev/null && echo "OK"
